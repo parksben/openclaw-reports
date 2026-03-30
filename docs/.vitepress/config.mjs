@@ -4,7 +4,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'OpenClaw 每日报告',
   description: 'AI Agent 自动生成的每日报告',
-  base: '/',
+  base: '/openclaw-reports/',
 
   themeConfig: {
     nav: [
