@@ -70,21 +70,29 @@ html, body { background: var(--oc-bg) !important; }
 /* =============================================
    文章顶部品牌条
    ============================================= */
-/* 全宽装饰细线：突破容器 padding，延伸到视口两侧 */
-.vp-doc > div::before {
-  content: '';
-  display: block;
+/* =============================================
+   阅读进度条（fixed 全宽，顶层）
+   ============================================= */
+.oc-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 2px;
-  background: linear-gradient(90deg,
-    #1e3a8a 0%, #2563eb 35%, #7c3aed 65%, #2563eb 100%);
-  background-size: 200% 100%;
-  animation: brandSlide 5s linear infinite;
-  margin: 0 -48px 36px;   /* 负 margin 抵消容器左右 padding，实现全宽 */
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
 }
-@keyframes brandSlide {
-  0%   { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+.oc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 40%, #7c3aed 100%);
+  transition: width 0.08s linear;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
 }
+
+/* 去掉原来的伪元素装饰线 */
+.vp-doc > div::before { display: none !important; }
 
 /* =============================================
    文章标题
@@ -492,13 +500,11 @@ html, body { background: var(--oc-bg) !important; }
   .oc-home { padding: 24px 16px 60px; }
   .oc-tab { padding: 10px 14px; font-size: 0.85rem; }
   .VPDoc .container { padding: 0 16px 40px !important; max-width: 100% !important; }
-  .vp-doc > div::before { margin: 0 -16px 28px; }  /* 移动端同步负 margin */
   .vp-doc h1 { font-size: 1.55rem; }
   .vp-doc table thead th,
   .vp-doc table tbody td { padding: 10px 13px !important; }
 }
 @media (max-width: 480px) {
   .VPDoc .container { padding: 0 12px 32px !important; }
-  .vp-doc > div::before { margin: 0 -12px 24px; }
   .vp-doc ol li { padding-left: 48px !important; }
 }
