@@ -62,7 +62,7 @@ html, body { background: var(--oc-bg) !important; }
 .VPDoc .container {
   max-width: 1080px !important;
   margin: 0 auto !important;
-  padding: 0 48px 100px !important;
+  padding: 0 48px 56px !important;
 }
 .VPDoc .content { padding-top: 0 !important; }
 .VPDoc .content-container { max-width: 100% !important; }
@@ -70,16 +70,16 @@ html, body { background: var(--oc-bg) !important; }
 /* =============================================
    文章顶部品牌条
    ============================================= */
+/* 全宽装饰细线：突破容器 padding，延伸到视口两侧 */
 .vp-doc > div::before {
   content: '';
   display: block;
-  height: 4px;
+  height: 2px;
   background: linear-gradient(90deg,
     #1e3a8a 0%, #2563eb 35%, #7c3aed 65%, #2563eb 100%);
   background-size: 200% 100%;
-  animation: brandSlide 4s linear infinite;
-  margin-bottom: 44px;
-  border-radius: 0 0 3px 3px;
+  animation: brandSlide 5s linear infinite;
+  margin: 0 -48px 36px;   /* 负 margin 抵消容器左右 padding，实现全宽 */
 }
 @keyframes brandSlide {
   0%   { background-position: 100% 0; }
@@ -491,11 +491,14 @@ html, body { background: var(--oc-bg) !important; }
 @media (max-width: 768px) {
   .oc-home { padding: 24px 16px 60px; }
   .oc-tab { padding: 10px 14px; font-size: 0.85rem; }
-  .VPDoc .container { padding: 0 20px 60px !important; max-width: 100% !important; }
+  .VPDoc .container { padding: 0 16px 40px !important; max-width: 100% !important; }
+  .vp-doc > div::before { margin: 0 -16px 28px; }  /* 移动端同步负 margin */
   .vp-doc h1 { font-size: 1.55rem; }
   .vp-doc table thead th,
   .vp-doc table tbody td { padding: 10px 13px !important; }
 }
 @media (max-width: 480px) {
+  .VPDoc .container { padding: 0 12px 32px !important; }
+  .vp-doc > div::before { margin: 0 -12px 24px; }
   .vp-doc ol li { padding-left: 48px !important; }
 }
