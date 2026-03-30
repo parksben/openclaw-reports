@@ -1,43 +1,52 @@
 /* =============================================
-   OpenClaw Reports — Professional Theme v3
+   OpenClaw Reports — Professional Theme v4
+   "蓝白专业报告" 风格
    ============================================= */
 
 /* ---- 全局变量 ---- */
 :root {
   --vp-font-family-base: 'PingFang SC', 'Hiragino Sans GB', 'Inter', 'Microsoft YaHei', sans-serif;
-  --vp-c-brand-1: #3b82f6;
-  --vp-c-brand-2: #2563eb;
-  --vp-c-brand-3: #1d4ed8;
-  --vp-c-brand-soft: rgba(59,130,246,0.1);
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #1d4ed8;
+  --vp-c-brand-3: #1e40af;
+  --vp-c-brand-soft: rgba(37,99,235,0.1);
 
-  --oc-bg:         #f0f4fa;
-  --oc-surface:    #ffffff;
-  --oc-surface-2:  #f5f7fc;
-  --oc-border:     #dde3f0;
-  --oc-heading:    #0a0f1e;
-  --oc-text:       #1a2035;
-  --oc-muted:      #6b7a9e;
-  --oc-accent:     #2563eb;
-  --oc-accent-2:   #7c3aed;
+  /* 页面底色：极浅蓝灰，不刺眼 */
+  --oc-bg:        #f4f7fc;
+  --oc-surface:   #ffffff;
+  --oc-surface-2: #eef2fa;
+  --oc-border:    #dde4f0;
+  --oc-heading:   #0d1426;
+  --oc-text:      #1e2d4a;
+  --oc-muted:     #667799;
+  --oc-accent:    #2563eb;
+  --oc-accent-2:  #6d28d9;
 
-  --oc-shadow-sm:  0 1px 3px rgba(10,15,30,0.06), 0 1px 2px rgba(10,15,30,0.04);
-  --oc-shadow-md:  0 4px 12px rgba(10,15,30,0.08), 0 2px 4px rgba(10,15,30,0.04);
-  --oc-shadow-lg:  0 8px 32px rgba(10,15,30,0.12), 0 4px 8px rgba(10,15,30,0.06);
-  --oc-radius:     14px;
-  --oc-radius-sm:  8px;
+  /* 表头品牌蓝 */
+  --oc-th-bg:     #1e3a8a;
+  --oc-th-bg-end: #2563eb;
+  --oc-th-color:  #ffffff;
+
+  --oc-shadow-sm: 0 1px 4px rgba(30,58,138,0.07), 0 1px 2px rgba(30,58,138,0.04);
+  --oc-shadow-md: 0 4px 16px rgba(30,58,138,0.10), 0 2px 6px rgba(30,58,138,0.05);
+  --oc-shadow-lg: 0 8px 36px rgba(30,58,138,0.14), 0 4px 12px rgba(30,58,138,0.07);
+  --oc-radius:    14px;
+  --oc-radius-sm: 8px;
 }
 
 .dark {
-  --oc-bg:        #080c18;
-  --oc-surface:   #0e1428;
-  --oc-surface-2: #141a30;
-  --oc-border:    #1e2845;
-  --oc-heading:   #e8edf8;
-  --oc-text:      #b8c4e0;
-  --oc-muted:     #5a6a90;
-  --oc-shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-  --oc-shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-  --oc-shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --oc-bg:        #070d1f;
+  --oc-surface:   #0d1530;
+  --oc-surface-2: #121c3a;
+  --oc-border:    #1c2a50;
+  --oc-heading:   #dde8ff;
+  --oc-text:      #a8bcdc;
+  --oc-muted:     #5070a0;
+  --oc-th-bg:     #1e3060;
+  --oc-th-bg-end: #1d4ed8;
+  --oc-shadow-sm: 0 1px 4px rgba(0,0,0,0.3);
+  --oc-shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --oc-shadow-lg: 0 8px 36px rgba(0,0,0,0.5);
 }
 
 /* ---- 全局背景 ---- */
@@ -51,68 +60,69 @@ html, body { background: var(--oc-bg) !important; }
 .VPContent.has-sidebar { padding-left: 0 !important; margin-left: 0 !important; }
 .VPDoc { padding-top: 0 !important; }
 .VPDoc .container {
-  max-width: 1060px !important;  /* PC 加宽 */
+  max-width: 1080px !important;
   margin: 0 auto !important;
-  padding: 0 40px 100px !important;
+  padding: 0 48px 100px !important;
 }
 .VPDoc .content { padding-top: 0 !important; }
 .VPDoc .content-container { max-width: 100% !important; }
 
 /* =============================================
-   文章页顶部彩带
+   文章顶部品牌条
    ============================================= */
 .vp-doc > div::before {
   content: '';
   display: block;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg,
-    #3b82f6 0%, #8b5cf6 25%, #ec4899 50%, #f59e0b 75%, #3b82f6 100%);
-  background-size: 300% 100%;
-  animation: gradientShift 6s linear infinite;
-  margin-bottom: 40px;
+    #1e3a8a 0%, #2563eb 35%, #7c3aed 65%, #2563eb 100%);
+  background-size: 200% 100%;
+  animation: brandSlide 4s linear infinite;
+  margin-bottom: 44px;
+  border-radius: 0 0 3px 3px;
 }
-@keyframes gradientShift {
-  0%   { background-position: 0% 0; }
-  100% { background-position: 300% 0; }
+@keyframes brandSlide {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 
 /* =============================================
    文章标题
    ============================================= */
 .vp-doc h1 {
-  font-size: 2rem;
+  font-size: 1.95rem;
   font-weight: 800;
   color: var(--oc-heading);
   line-height: 1.22;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   margin: 0 0 1.1em;
-  padding-bottom: 0.6em;
-  border-bottom: 1px solid var(--oc-border);
+  padding-bottom: 0.65em;
+  border-bottom: 1px solid var(--oc-border) !important;
   position: relative;
 }
 .vp-doc h1::after {
   content: '';
   position: absolute;
   left: 0; bottom: -1px;
-  width: 56px; height: 3px;
+  width: 52px; height: 3px;
   background: linear-gradient(90deg, var(--oc-accent), var(--oc-accent-2));
   border-radius: 3px;
 }
 
 .vp-doc h2 {
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--oc-heading);
-  margin: 2.4em 0 0.85em;
-  padding: 0.6em 1em;
-  background: linear-gradient(135deg, var(--oc-surface-2) 0%, rgba(59,130,246,0.04) 100%);
+  margin: 2.4em 0 0.9em;
+  padding: 0.6em 1em 0.6em 1.1em;
+  background: linear-gradient(90deg, var(--oc-surface-2) 0%, rgba(37,99,235,0.03) 100%);
   border-left: 4px solid var(--oc-accent);
+  border-bottom: none !important;
   border-radius: 0 var(--oc-radius-sm) var(--oc-radius-sm) 0;
-  border-bottom: none;
 }
 
 .vp-doc h3 {
-  font-size: 1.05rem;
+  font-size: 1.04rem;
   font-weight: 600;
   color: var(--oc-heading);
   margin: 1.8em 0 0.55em;
@@ -121,68 +131,59 @@ html, body { background: var(--oc-bg) !important; }
 }
 
 /* =============================================
-   表格 — 高对比度专业风
+   表格 — 品牌蓝表头，专业报告风
    ============================================= */
 .vp-doc table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: var(--oc-radius);
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: var(--oc-radius) !important;
   overflow: hidden;
-  box-shadow: var(--oc-shadow-md);
+  box-shadow: var(--oc-shadow-md) !important;
   margin: 1.8em 0;
   font-size: 0.94rem;
-  background: var(--oc-surface);
-  border: 1px solid var(--oc-border);
+  background: var(--oc-surface) !important;
+  border: 1px solid var(--oc-border) !important;
 }
 
-/* 表头：深色背景 + 纯白文字，高对比度（强制覆盖 VitePress 默认样式） */
+/* 表头：品牌蓝渐变，高对比度白字 */
 .vp-doc table thead,
 .vp-doc table thead tr {
-  background: #0f172a !important;
-  background-color: #0f172a !important;
-}
-.dark .vp-doc table thead,
-.dark .vp-doc table thead tr {
-  background: #070c1a !important;
-  background-color: #070c1a !important;
+  background: linear-gradient(135deg, var(--oc-th-bg) 0%, var(--oc-th-bg-end) 100%) !important;
+  background-color: var(--oc-th-bg) !important;
 }
 .vp-doc table thead th,
 .vp-doc th {
-  padding: 14px 20px !important;
+  padding: 13px 20px !important;
   text-align: left !important;
   font-weight: 600 !important;
-  font-size: 0.8rem !important;
-  color: #ffffff !important;
-  letter-spacing: 0.07em !important;
+  font-size: 0.82rem !important;
+  color: var(--oc-th-color) !important;
+  letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   border: none !important;
-  border-bottom: 1px solid #1e3a5f !important;
   white-space: nowrap !important;
   background: transparent !important;
   background-color: transparent !important;
 }
-/* 表头左侧蓝色竖线装饰 */
-.vp-doc table thead th:first-child {
-  position: relative;
-}
-.vp-doc table thead th:first-child::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 20%; bottom: 20%;
-  width: 3px;
-  background: var(--oc-accent);
-  border-radius: 3px;
+/* 列分隔线 */
+.vp-doc table thead th + th {
+  border-left: 1px solid rgba(255,255,255,0.15) !important;
 }
 
+/* tbody */
 .vp-doc table tbody tr {
   border-bottom: 1px solid var(--oc-border) !important;
   transition: background 0.12s;
 }
 .vp-doc table tbody tr:last-child { border-bottom: none !important; }
 .vp-doc table tbody tr:nth-child(2n),
-.vp-doc table tbody tr:nth-child(even) { background: var(--oc-surface-2) !important; }
-.vp-doc table tbody tr:hover { background: rgba(59,130,246,0.06) !important; }
+.vp-doc table tbody tr:nth-child(even) {
+  background-color: var(--oc-surface-2) !important;
+}
+.vp-doc table tbody tr:hover {
+  background-color: rgba(37,99,235,0.05) !important;
+}
 .vp-doc table tbody td,
 .vp-doc td {
   padding: 12px 20px !important;
@@ -190,6 +191,7 @@ html, body { background: var(--oc-bg) !important; }
   border: none !important;
   border-bottom: 1px solid var(--oc-border) !important;
   font-variant-numeric: tabular-nums;
+  background-color: transparent !important;
 }
 .vp-doc table tbody tr:last-child td { border-bottom: none !important; }
 .vp-doc table tbody td:first-child {
@@ -202,12 +204,11 @@ html, body { background: var(--oc-bg) !important; }
    ============================================= */
 .vp-doc blockquote {
   background: linear-gradient(135deg,
-    rgba(59,130,246,0.06) 0%,
-    rgba(124,58,237,0.03) 100%);
-  border: 1px solid rgba(59,130,246,0.18);
-  border-left: 4px solid var(--oc-accent);
-  border-radius: 0 var(--oc-radius-sm) var(--oc-radius-sm) 0;
-  padding: 13px 18px;
+    rgba(37,99,235,0.05) 0%, rgba(109,40,217,0.03) 100%);
+  border: 1px solid rgba(37,99,235,0.15) !important;
+  border-left: 4px solid var(--oc-accent) !important;
+  border-radius: 0 var(--oc-radius-sm) var(--oc-radius-sm) 0 !important;
+  padding: 12px 18px !important;
   margin: 1.5em 0;
   font-size: 0.91rem;
   color: var(--oc-muted);
@@ -218,8 +219,8 @@ html, body { background: var(--oc-bg) !important; }
    有序列表（新闻条目）— 卡片化
    ============================================= */
 .vp-doc ol {
-  padding-left: 0;
-  list-style: none;
+  padding-left: 0 !important;
+  list-style: none !important;
   counter-reset: news;
   display: flex;
   flex-direction: column;
@@ -229,27 +230,27 @@ html, body { background: var(--oc-bg) !important; }
 .vp-doc ol li {
   counter-increment: news;
   position: relative;
-  padding: 15px 18px 15px 56px;
+  padding: 14px 18px 14px 56px !important;
   background: var(--oc-surface);
   border: 1px solid var(--oc-border);
   border-radius: var(--oc-radius);
   box-shadow: var(--oc-shadow-sm);
-  line-height: 1.7;
+  line-height: 1.72;
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
 }
 .vp-doc ol li:hover {
   box-shadow: var(--oc-shadow-md);
-  border-color: rgba(59,130,246,0.35);
+  border-color: rgba(37,99,235,0.3);
   transform: translateY(-1px);
 }
 .vp-doc ol li::before {
-  content: counter(news);
+  content: counter(news) !important;
   position: absolute;
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
   width: 26px; height: 26px;
-  background: linear-gradient(135deg, var(--oc-accent) 0%, var(--oc-accent-2) 100%);
+  background: linear-gradient(135deg, var(--oc-accent), var(--oc-accent-2));
   color: #fff;
   font-size: 0.72rem;
   font-weight: 700;
@@ -258,27 +259,23 @@ html, body { background: var(--oc-bg) !important; }
   place-items: center;
 }
 .vp-doc ol li strong { font-weight: 600; color: var(--oc-heading); }
-.vp-doc ol li a {
-  color: var(--oc-accent);
-  font-weight: 600;
-  text-decoration: none;
-}
+.vp-doc ol li a { color: var(--oc-accent); font-weight: 600; text-decoration: none; }
 .vp-doc ol li a:hover { text-decoration: underline; }
 
 /* =============================================
-   无序列表（Skill 推荐）
+   无序列表
    ============================================= */
 .vp-doc ul {
-  padding-left: 0;
-  list-style: none;
+  padding-left: 0 !important;
+  list-style: none !important;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   margin: 1em 0;
 }
 .vp-doc ul li {
   position: relative;
-  padding: 9px 14px 9px 34px;
+  padding: 8px 14px 8px 32px !important;
   background: var(--oc-surface-2);
   border-radius: var(--oc-radius-sm);
   font-size: 0.93rem;
@@ -286,14 +283,11 @@ html, body { background: var(--oc-bg) !important; }
   border: 1px solid transparent;
   transition: border-color 0.15s, background 0.15s;
 }
-.vp-doc ul li:hover {
-  background: var(--oc-surface);
-  border-color: var(--oc-border);
-}
+.vp-doc ul li:hover { background: var(--oc-surface); border-color: var(--oc-border); }
 .vp-doc ul li::before {
-  content: '▸';
+  content: '▸' !important;
   position: absolute;
-  left: 13px;
+  left: 12px;
   color: var(--oc-accent);
   font-size: 0.75rem;
   top: 50%;
@@ -303,15 +297,14 @@ html, body { background: var(--oc-bg) !important; }
 .vp-doc ul li a:hover { text-decoration: underline; }
 
 /* =============================================
-   HR & 段落
+   HR
    ============================================= */
 .vp-doc hr {
-  border: none;
+  border: none !important;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--oc-border), transparent);
   margin: 2.2em 0;
 }
-.vp-doc p { color: var(--oc-text); line-height: 1.8; }
 
 /* =============================================
    文章底部署名
@@ -321,28 +314,17 @@ html, body { background: var(--oc-bg) !important; }
   align-items: center;
   gap: 10px;
   margin-top: 48px;
-  padding: 16px 20px;
-  background: linear-gradient(135deg,
-    rgba(59,130,246,0.05) 0%,
-    rgba(124,58,237,0.04) 100%);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: var(--oc-radius);
-  font-size: 0.88rem;
+  padding: 14px 20px;
+  background: var(--oc-surface-2);
+  border: 1px solid var(--oc-border);
+  border-left: 4px solid var(--oc-accent);
+  border-radius: 0 var(--oc-radius-sm) var(--oc-radius-sm) 0;
+  font-size: 0.87rem;
   color: var(--oc-muted);
 }
-.oc-doc-footer-icon {
-  color: var(--oc-accent);
-  font-size: 1rem;
-  opacity: 0.7;
-}
-.oc-doc-footer-text strong {
-  color: var(--oc-heading);
-  font-weight: 600;
-}
-.oc-doc-footer-text time {
-  font-variant-numeric: tabular-nums;
-  color: var(--oc-muted);
-}
+.oc-doc-footer-icon { color: var(--oc-accent); opacity: 0.6; }
+.oc-doc-footer-text strong { color: var(--oc-heading); font-weight: 600; }
+.oc-doc-footer-text time { font-variant-numeric: tabular-nums; }
 
 /* =============================================
    页脚
@@ -356,7 +338,7 @@ html, body { background: var(--oc-bg) !important; }
 .VPFooter .message { color: var(--oc-muted) !important; font-size: 0.82rem !important; }
 
 /* =============================================
-   首页 Hero
+   首页
    ============================================= */
 .oc-home {
   max-width: 1000px;
@@ -375,9 +357,9 @@ html, body { background: var(--oc-bg) !important; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 50% -5%,  rgba(59,130,246,0.13), transparent),
-    radial-gradient(ellipse 50% 50% at 85% 90%,  rgba(124,58,237,0.09), transparent),
-    radial-gradient(ellipse 40% 40% at 10% 70%,  rgba(236,72,153,0.06), transparent);
+    radial-gradient(ellipse 70% 55% at 50% -5%,  rgba(37,99,235,0.12), transparent),
+    radial-gradient(ellipse 45% 45% at 88% 88%,  rgba(109,40,217,0.08), transparent),
+    radial-gradient(ellipse 35% 35% at  8% 72%,  rgba(37,99,235,0.05), transparent);
   pointer-events: none;
 }
 
@@ -385,12 +367,12 @@ html, body { background: var(--oc-bg) !important; }
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(59,130,246,0.1);
+  background: rgba(37,99,235,0.08);
   color: var(--oc-accent);
-  border: 1px solid rgba(59,130,246,0.22);
+  border: 1px solid rgba(37,99,235,0.2);
   border-radius: 100px;
   padding: 5px 16px;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -398,26 +380,26 @@ html, body { background: var(--oc-bg) !important; }
 }
 .oc-hero-badge::before {
   content: '●';
-  font-size: 0.5rem;
-  animation: blink 2s ease-in-out infinite;
+  font-size: 0.48rem;
+  animation: blink 2.2s ease-in-out infinite;
 }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
 
 .oc-hero-title {
-  font-size: 2.8rem;
+  font-size: 2.7rem;
   font-weight: 800;
   color: var(--oc-heading);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   line-height: 1.12;
   margin: 0 0 16px;
 }
 
 .oc-hero-sub {
-  font-size: 1.02rem;
+  font-size: 1rem;
   color: var(--oc-muted);
   margin: 0 auto 28px;
   max-width: 520px;
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
 .oc-hero-stats {
@@ -432,15 +414,13 @@ html, body { background: var(--oc-bg) !important; }
   background: var(--oc-surface);
   border: 1px solid var(--oc-border);
   border-radius: 100px;
-  padding: 5px 14px;
+  padding: 5px 15px;
   box-shadow: var(--oc-shadow-sm);
   font-weight: 500;
 }
 
-/* =============================================
-   首页板块卡片
-   ============================================= */
-.oc-sections { display: flex; flex-direction: column; gap: 28px; }
+/* 板块列表 */
+.oc-sections { display: flex; flex-direction: column; gap: 24px; }
 
 .oc-section {
   background: var(--oc-surface);
@@ -456,7 +436,7 @@ html, body { background: var(--oc-bg) !important; }
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 18px 22px;
+  padding: 17px 22px;
   background: var(--oc-surface-2);
   border-bottom: 1px solid var(--oc-border);
   position: relative;
@@ -467,54 +447,44 @@ html, body { background: var(--oc-bg) !important; }
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 4px;
-  background: var(--sc, var(--oc-accent));
-}
-.oc-section-head::after {
-  content: '';
-  position: absolute;
-  right: -60px; top: -30px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  background: var(--sc-soft, rgba(59,130,246,0.06));
-  pointer-events: none;
+  background: linear-gradient(180deg, var(--sc, var(--oc-accent)), color-mix(in srgb, var(--sc, var(--oc-accent)) 60%, transparent));
 }
 
-.oc-section-icon { font-size: 1.5rem; line-height: 1; position: relative; z-index: 1; }
-.oc-section-meta { flex: 1; display: flex; flex-direction: column; position: relative; z-index: 1; }
+.oc-section-icon  { font-size: 1.4rem; line-height: 1; }
+.oc-section-meta  { flex: 1; display: flex; flex-direction: column; }
 .oc-section-title { font-size: 1rem; font-weight: 700; color: var(--oc-heading); }
-.oc-section-desc  { font-size: 0.8rem; color: var(--oc-muted); margin-top: 2px; }
+.oc-section-desc  { font-size: 0.79rem; color: var(--oc-muted); margin-top: 2px; }
 .oc-section-count {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--sc, var(--oc-accent));
-  background: var(--sc-soft, rgba(59,130,246,0.08));
+  background: var(--sc-soft, rgba(37,99,235,0.08));
   padding: 3px 11px;
   border-radius: 100px;
   white-space: nowrap;
-  position: relative; z-index: 1;
 }
 
-.oc-entries { padding: 10px; display: flex; flex-direction: column; gap: 4px; }
+.oc-entries { padding: 10px; display: flex; flex-direction: column; gap: 3px; }
 
 .oc-entry {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 14px;
+  padding: 10px 14px;
   border-radius: var(--oc-radius-sm);
   border: 1px solid transparent;
   text-decoration: none;
   color: inherit;
-  transition: background 0.14s, border-color 0.14s, transform 0.12s;
+  transition: background 0.13s, border-color 0.13s, transform 0.12s;
 }
 .oc-entry:hover {
-  background: var(--sc-soft, rgba(59,130,246,0.06));
-  border-color: var(--sc, rgba(59,130,246,0.2));
+  background: var(--sc-soft, rgba(37,99,235,0.05));
+  border-color: var(--sc, rgba(37,99,235,0.18));
   transform: translateX(4px);
 }
 .oc-entry-latest {
-  background: var(--sc-soft, rgba(59,130,246,0.06));
-  border-color: var(--sc, rgba(59,130,246,0.15));
+  background: var(--sc-soft, rgba(37,99,235,0.06));
+  border-color: var(--sc, rgba(37,99,235,0.14));
 }
 .oc-entry-new {
   font-size: 0.67rem;
@@ -523,27 +493,26 @@ html, body { background: var(--oc-bg) !important; }
   background: var(--sc, var(--oc-accent));
   padding: 2px 8px;
   border-radius: 100px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 .oc-entry-slug {
   flex: 1;
-  font-size: 0.92rem;
+  font-size: 0.91rem;
   font-weight: 500;
   color: var(--oc-text);
   font-variant-numeric: tabular-nums;
 }
 .oc-entry-arrow {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--sc, var(--oc-accent));
-  opacity: 0.6;
-  transition: transform 0.14s, opacity 0.14s;
+  opacity: 0.55;
+  transition: transform 0.13s, opacity 0.13s;
 }
 .oc-entry:hover .oc-entry-arrow { transform: translateX(3px); opacity: 1; }
-.oc-empty { padding: 20px 14px; color: var(--oc-muted); font-size: 0.88rem; text-align: center; }
+.oc-empty { padding: 20px; color: var(--oc-muted); font-size: 0.88rem; text-align: center; }
 
-/* 首页底部 */
 .oc-home-footer {
   text-align: center;
   margin-top: 52px;
@@ -561,10 +530,10 @@ html, body { background: var(--oc-bg) !important; }
   .VPDoc .container { padding: 0 20px 60px !important; max-width: 100% !important; }
   .vp-doc h1 { font-size: 1.55rem; }
   .vp-doc table thead th,
-  .vp-doc table tbody td { padding: 10px 13px; }
+  .vp-doc table tbody td { padding: 10px 13px !important; }
 }
 @media (max-width: 480px) {
   .oc-hero { padding: 40px 12px 36px; }
-  .oc-hero-title { font-size: 1.7rem; }
-  .vp-doc ol li { padding-left: 48px; }
+  .oc-hero-title { font-size: 1.75rem; }
+  .vp-doc ol li { padding-left: 48px !important; }
 }
