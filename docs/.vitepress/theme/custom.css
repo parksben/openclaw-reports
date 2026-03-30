@@ -327,16 +327,8 @@ html, body { background: var(--oc-bg) !important; }
 .oc-doc-footer-text strong { color: var(--oc-heading); font-weight: 600; }
 .oc-doc-footer-text time { font-variant-numeric: tabular-nums; }
 
-/* =============================================
-   页脚
-   ============================================= */
-.VPFooter {
-  background: var(--oc-surface) !important;
-  border-top: 1px solid var(--oc-border) !important;
-  padding: 20px 24px !important;
-  text-align: center;
-}
-.VPFooter .message { color: var(--oc-muted) !important; font-size: 0.82rem !important; }
+/* 隐藏全局 footer */
+.VPFooter { display: none !important; }
 
 /* =============================================
    首页
@@ -513,15 +505,6 @@ html, body { background: var(--oc-bg) !important; }
 }
 .oc-entry:hover .oc-entry-arrow { transform: translateX(3px); opacity: 1; }
 .oc-empty { padding: 20px; color: var(--oc-muted); font-size: 0.88rem; text-align: center; }
-
-.oc-home-footer {
-  text-align: center;
-  margin-top: 52px;
-  padding-top: 24px;
-  border-top: 1px solid var(--oc-border);
-  font-size: 0.82rem;
-  color: var(--oc-muted);
-}
 
 /* =============================================
    响应式

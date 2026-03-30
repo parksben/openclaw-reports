@@ -11,7 +11,7 @@ export default defineConfig({
     nav: [],
     sidebar: {},
     socialLinks: [],
-    footer: false,
+    footer: undefined,
     lastUpdated: { text: '最后更新' },
     // 关闭搜索，保持简洁
     search: { provider: 'local' },

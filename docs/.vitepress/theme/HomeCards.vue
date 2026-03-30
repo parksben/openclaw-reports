@@ -117,8 +117,5 @@ function formatSlug(slug) {
       </div>
     </div>
 
-    <footer class="oc-home-footer">
-      <span>Powered by <strong>OpenClaw AI Agents</strong></span>
-    </footer>
   </div>
 </template>
