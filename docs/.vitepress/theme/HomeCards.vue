@@ -1,9 +1,10 @@
 <script setup>
-import { data as pages } from '../../pages.data.js'
+import { data } from '../../pages.data.js'
 
-// 已知板块的元数据（icon / 标题 / 描述 / 颜色）
-// 新板块会自动出现，使用默认样式
-const SECTION_META = {
+const { sections: pages, sectionMeta } = data
+
+// 硬编码的兜底默认值（已知板块）
+const BUILTIN_META = {
   'exchange-rate': {
     icon: '💱', title: '汇率播报',
     desc: '每日三次 · 08:00 / 12:00 / 20:00',
@@ -21,33 +22,48 @@ const SECTION_META = {
   },
 }
 
-// 默认颜色池（新板块自动分配）
+// 颜色池（新板块自动分配）
 const COLOR_POOL = [
   { color: '#059669', colorSoft: 'rgba(5,150,105,0.08)' },
   { color: '#dc2626', colorSoft: 'rgba(220,38,38,0.08)' },
   { color: '#0891b2', colorSoft: 'rgba(8,145,178,0.08)' },
   { color: '#9333ea', colorSoft: 'rgba(147,51,234,0.08)' },
+  { color: '#be185d', colorSoft: 'rgba(190,24,93,0.08)' },
 ]
 
-// 固定显示顺序（已知板块在前）
 const KNOWN_ORDER = ['exchange-rate', 'ai-news', 'skill-scout']
 
 const sections = (() => {
   const known = KNOWN_ORDER.filter(k => pages[k])
   const unknown = Object.keys(pages).filter(k => !KNOWN_ORDER.includes(k)).sort()
   return [...known, ...unknown].map((key, i) => {
-    const meta = SECTION_META[key]
-    const fallback = COLOR_POOL[i % COLOR_POOL.length]
+    const builtin = BUILTIN_META[key] || {}
+    // agent 写入的 meta 优先级最高，其次 builtin，最后自动生成
+    const agentMeta = sectionMeta?.[key] || {}
+    const fallbackColor = COLOR_POOL[i % COLOR_POOL.length]
+    const color = agentMeta.color || builtin.color || fallbackColor.color
+    // 根据 color 自动生成 colorSoft
+    const colorSoft = builtin.colorSoft
+      || (agentMeta.color ? hexToSoft(agentMeta.color) : fallbackColor.colorSoft)
+
     return {
       key,
-      icon: meta?.icon ?? '📄',
-      title: meta?.title ?? key.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-      desc: meta?.desc ?? 'AI Agent 自动推送',
-      color: meta?.color ?? fallback.color,
-      colorSoft: meta?.colorSoft ?? fallback.colorSoft,
+      icon:  agentMeta.icon  || builtin.icon  || '📄',
+      title: agentMeta.title || builtin.title || key.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+      desc:  agentMeta.desc  || builtin.desc  || 'AI Agent 自动推送',
+      color,
+      colorSoft,
     }
   })
 })()
+
+function hexToSoft(hex) {
+  // #rrggbb → rgba(r,g,b,0.08)
+  const r = parseInt(hex.slice(1,3), 16)
+  const g = parseInt(hex.slice(3,5), 16)
+  const b = parseInt(hex.slice(5,7), 16)
+  return `rgba(${r},${g},${b},0.08)`
+}
 
 function formatSlug(slug) {
   return slug
