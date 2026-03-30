@@ -134,7 +134,8 @@ html, body { background: var(--oc-bg) !important; }
    表格 — 品牌蓝表头，专业报告风
    ============================================= */
 .vp-doc table {
-  width: 100%;
+  display: table !important;   /* 覆盖 VitePress 的 display:block，恢复全宽 */
+  width: 100% !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
   border-radius: var(--oc-radius) !important;
