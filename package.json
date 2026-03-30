@@ -2,11 +2,13 @@
   "name": "openclaw-reports",
   "version": "1.0.0",
   "description": "OpenClaw agent daily reports",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs"
   },
-  "devDependencies": {},
-  "type": "module"
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
 }
