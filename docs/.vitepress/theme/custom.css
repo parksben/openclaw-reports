@@ -327,8 +327,10 @@ html, body { background: var(--oc-bg) !important; }
 .oc-doc-footer-text strong { color: var(--oc-heading); font-weight: 600; }
 .oc-doc-footer-text time { font-variant-numeric: tabular-nums; }
 
-/* 隐藏全局 footer */
-.VPFooter { display: none !important; }
+/* 隐藏全局 footer 和原生 lastUpdated */
+.VPFooter,
+.VPDocFooter,
+.VPLastUpdated { display: none !important; }
 
 /* =============================================
    首页
