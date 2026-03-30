@@ -1,0 +1,287 @@
+/* =============================================
+   OpenClaw Reports — Custom Theme
+   ============================================= */
+
+/* ---- 全局字体 & 颜色变量 ---- */
+:root {
+  --vp-font-family-base: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --vp-c-brand-1: #5b6fe6;
+  --vp-c-brand-2: #4a5dd4;
+  --vp-c-brand-3: #3b4ec2;
+  --vp-c-brand-soft: rgba(91, 111, 230, 0.12);
+
+  --oc-heading-color: #1a1f3a;
+  --oc-table-header-bg: #f0f2fa;
+  --oc-table-stripe-bg: #f8f9fc;
+  --oc-table-border: #e2e6f0;
+  --oc-card-bg: #ffffff;
+  --oc-card-border: #e8ebf5;
+  --oc-card-shadow: 0 2px 12px rgba(91, 111, 230, 0.08);
+  --oc-card-hover-shadow: 0 6px 24px rgba(91, 111, 230, 0.16);
+}
+
+.dark {
+  --oc-heading-color: #e2e6f8;
+  --oc-table-header-bg: #1e2240;
+  --oc-table-stripe-bg: #181c36;
+  --oc-table-border: #2e3460;
+  --oc-card-bg: #1a1e3a;
+  --oc-card-border: #2a2e50;
+  --oc-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --oc-card-hover-shadow: 0 6px 24px rgba(91, 111, 230, 0.25);
+}
+
+/* ---- 隐藏导航栏 & 侧边栏（文章页） ---- */
+.VPNav,
+.VPSidebar,
+.VPNavBar,
+.VPLocalNav {
+  display: none !important;
+}
+
+/* 首页保留 hero 区域正常布局 */
+.VPHome .VPNav,
+.VPHome .VPNavBar {
+  display: flex !important;
+}
+
+/* 文章页内容区撑满，去除 sidebar 偏移 */
+.VPContent.has-sidebar {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.VPDoc .container {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  padding: 40px 28px 80px !important;
+}
+
+/* ---- 标题样式 ---- */
+.vp-doc h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--oc-heading-color);
+  border-bottom: 3px solid var(--vp-c-brand-1);
+  padding-bottom: 0.45em;
+  margin-bottom: 1.2em;
+  letter-spacing: -0.01em;
+}
+
+.vp-doc h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--oc-heading-color);
+  border-left: 4px solid var(--vp-c-brand-1);
+  padding-left: 0.7em;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  border-bottom: none;
+}
+
+.vp-doc h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--oc-heading-color);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* ---- 表格样式 ---- */
+.vp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(91, 111, 230, 0.08);
+  margin: 1.4em 0;
+  font-size: 0.95rem;
+}
+
+.vp-doc table thead tr {
+  background: var(--oc-table-header-bg);
+}
+
+.vp-doc table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--oc-heading-color);
+  border-bottom: 2px solid var(--vp-c-brand-1);
+  white-space: nowrap;
+}
+
+.vp-doc table tbody tr {
+  border-bottom: 1px solid var(--oc-table-border);
+  transition: background 0.15s;
+}
+
+.vp-doc table tbody tr:nth-child(even) {
+  background: var(--oc-table-stripe-bg);
+}
+
+.vp-doc table tbody tr:hover {
+  background: var(--vp-c-brand-soft);
+}
+
+.vp-doc table tbody td {
+  padding: 10px 16px;
+  color: var(--vp-c-text-1);
+}
+
+/* ---- blockquote ---- */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  padding: 10px 16px;
+  border-radius: 0 8px 8px 0;
+  color: var(--vp-c-text-2);
+  font-size: 0.93rem;
+  margin: 1.2em 0;
+}
+
+/* ---- 有序列表（新闻条目） ---- */
+.vp-doc ol {
+  padding-left: 1.4em;
+}
+.vp-doc ol li {
+  padding: 6px 0;
+  line-height: 1.7;
+  border-bottom: 1px dashed var(--oc-table-border);
+}
+.vp-doc ol li:last-child {
+  border-bottom: none;
+}
+.vp-doc ol li strong {
+  color: var(--vp-c-brand-1);
+}
+.vp-doc ol li a {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+  text-decoration: none;
+}
+.vp-doc ol li a:hover {
+  text-decoration: underline;
+}
+
+/* ---- hr ---- */
+.vp-doc hr {
+  border: none;
+  border-top: 1px solid var(--oc-table-border);
+  margin: 1.8em 0;
+}
+
+/* ---- 页脚 ---- */
+.VPFooter {
+  border-top: 1px solid var(--oc-table-border);
+  padding: 16px 24px;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-3);
+  text-align: center;
+}
+
+/* ---- 首页自定义卡片区域（由 HomeCards 组件使用） ---- */
+.oc-home {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.oc-home-title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.oc-home-title h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--oc-heading-color);
+  margin: 0;
+}
+
+.oc-home-subtitle {
+  text-align: center;
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+  margin-bottom: 48px;
+}
+
+.oc-section {
+  margin-bottom: 48px;
+}
+
+.oc-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--vp-c-brand-1);
+}
+
+.oc-section-icon {
+  font-size: 1.5rem;
+}
+
+.oc-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--oc-heading-color);
+}
+
+.oc-section-desc {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-3);
+  margin-left: auto;
+}
+
+.oc-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oc-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--oc-card-bg);
+  border: 1px solid var(--oc-card-border);
+  border-radius: 10px;
+  box-shadow: var(--oc-card-shadow);
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.oc-card:hover {
+  box-shadow: var(--oc-card-hover-shadow);
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-1px);
+}
+
+.oc-card-date {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.oc-card-label {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--vp-c-text-1);
+}
+
+.oc-card-arrow {
+  font-size: 0.8rem;
+  color: var(--vp-c-text-3);
+}
+
+.oc-empty {
+  color: var(--vp-c-text-3);
+  font-size: 0.9rem;
+  padding: 12px 0;
+}
