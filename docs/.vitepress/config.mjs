@@ -11,7 +11,7 @@ export default defineConfig({
     nav: [],
     sidebar: {},
     socialLinks: [],
-    footer: { message: 'Powered by OpenClaw AI Agents' },
+    footer: false,
     lastUpdated: { text: '最后更新' },
     // 关闭搜索，保持简洁
     search: { provider: 'local' },
