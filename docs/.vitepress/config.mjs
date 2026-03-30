@@ -2,9 +2,9 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: 'OpenClaw 每日报告',
+  title: 'OpenClaw Reports',
   description: 'AI Agent 自动生成的每日报告',
-  base: '/openclaw-reports/',
+  base: '/',
 
   themeConfig: {
     nav: [
