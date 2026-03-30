@@ -136,25 +136,31 @@ html, body { background: var(--oc-bg) !important; }
   border: 1px solid var(--oc-border);
 }
 
-/* 表头：深色背景 + 纯白文字，高对比度 */
-.vp-doc table thead {
-  background: #0f172a;
+/* 表头：深色背景 + 纯白文字，高对比度（强制覆盖 VitePress 默认样式） */
+.vp-doc table thead,
+.vp-doc table thead tr {
+  background: #0f172a !important;
+  background-color: #0f172a !important;
 }
-.dark .vp-doc table thead {
-  background: #0a0e1c;
-  border-bottom: 1px solid #1e2845;
+.dark .vp-doc table thead,
+.dark .vp-doc table thead tr {
+  background: #070c1a !important;
+  background-color: #070c1a !important;
 }
-.vp-doc table thead th {
-  padding: 14px 20px;
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.8rem;
-  color: #ffffff;        /* 纯白，高对比度 */
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  border: none;
-  white-space: nowrap;
-  background: transparent;
+.vp-doc table thead th,
+.vp-doc th {
+  padding: 14px 20px !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  color: #ffffff !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  border-bottom: 1px solid #1e3a5f !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 /* 表头左侧蓝色竖线装饰 */
 .vp-doc table thead th:first-child {
@@ -170,21 +176,25 @@ html, body { background: var(--oc-bg) !important; }
 }
 
 .vp-doc table tbody tr {
-  border-bottom: 1px solid var(--oc-border);
+  border-bottom: 1px solid var(--oc-border) !important;
   transition: background 0.12s;
 }
-.vp-doc table tbody tr:last-child { border-bottom: none; }
-.vp-doc table tbody tr:nth-child(even) { background: var(--oc-surface-2); }
-.vp-doc table tbody tr:hover { background: rgba(59,130,246,0.05); }
-.vp-doc table tbody td {
-  padding: 12px 20px;
-  color: var(--oc-text);
-  border: none;
+.vp-doc table tbody tr:last-child { border-bottom: none !important; }
+.vp-doc table tbody tr:nth-child(2n),
+.vp-doc table tbody tr:nth-child(even) { background: var(--oc-surface-2) !important; }
+.vp-doc table tbody tr:hover { background: rgba(59,130,246,0.06) !important; }
+.vp-doc table tbody td,
+.vp-doc td {
+  padding: 12px 20px !important;
+  color: var(--oc-text) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--oc-border) !important;
   font-variant-numeric: tabular-nums;
 }
+.vp-doc table tbody tr:last-child td { border-bottom: none !important; }
 .vp-doc table tbody td:first-child {
-  font-weight: 600;
-  color: var(--oc-heading);
+  font-weight: 600 !important;
+  color: var(--oc-heading) !important;
 }
 
 /* =============================================
