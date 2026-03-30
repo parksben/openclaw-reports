@@ -497,18 +497,18 @@ html, body { background: var(--oc-bg) !important; }
    响应式
    ============================================= */
 @media (max-width: 768px) {
-  .oc-home { padding: 24px 16px 40px; }
+  .oc-home { padding: 24px 8px 40px; }
   .oc-tab { padding: 10px 14px; font-size: 0.85rem; }
-  .VPDoc .container { padding: 0 16px 16px !important; max-width: 100% !important; }
-  .VPDoc .content { padding-top: 24px !important; }
+  .VPDoc .container { padding: 0 8px 16px !important; max-width: 100% !important; }
+  .VPDoc .content { padding-top: 32px !important; }
   .oc-doc-footer { margin-top: 20px; }
   .vp-doc h1 { font-size: 1.55rem; }
   .vp-doc table thead th,
   .vp-doc table tbody td { padding: 10px 13px !important; }
 }
 @media (max-width: 480px) {
-  .VPDoc .container { padding: 0 12px 12px !important; }
-  .VPDoc .content { padding-top: 20px !important; }
+  .VPDoc .container { padding: 0 6px 12px !important; }
+  .VPDoc .content { padding-top: 28px !important; }
   .oc-doc-footer { margin-top: 16px; }
   .vp-doc ol li { padding-left: 48px !important; }
 }
