@@ -335,10 +335,21 @@ html, body { background: var(--oc-bg) !important; }
 .oc-doc-footer-text strong { color: var(--oc-heading); font-weight: 600; }
 .oc-doc-footer-text time { font-variant-numeric: tabular-nums; }
 
-/* 隐藏全局 footer 和原生 lastUpdated */
+/* 隐藏全局 footer、原生 lastUpdated、aside 栏，消除多余 margin */
 .VPFooter,
 .VPDocFooter,
-.VPLastUpdated { display: none !important; }
+.VPLastUpdated,
+.VPDocAside { display: none !important; }
+
+/* VPDocFooter 即使隐藏，其 margin-top:64px 仍会占空间，强制清零 */
+.VPDocFooter { margin-top: 0 !important; }
+
+/* has-aside 布局下 content 的偏移也要清除 */
+.VPDoc.has-aside .content-container { max-width: 100% !important; }
+.VPDoc.has-aside .container { padding-right: 48px !important; }
+@media (max-width: 768px) {
+  .VPDoc.has-aside .container { padding-right: 8px !important; }
+}
 
 /* =============================================
 
