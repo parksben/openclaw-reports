@@ -341,8 +341,9 @@ html, body { background: var(--oc-bg) !important; }
 .VPLastUpdated,
 .VPDocAside { display: none !important; }
 
-/* VPDocFooter 即使隐藏，其 margin-top:64px 仍会占空间，强制清零 */
-.VPDocFooter { margin-top: 0 !important; }
+/* VPDocFooter 带 scoped hash 的 margin-top:64px 优先级很高，用双重选择器覆盖 */
+.VPDoc .VPDocFooter,
+.VPContent .VPDocFooter { margin-top: 0 !important; height: 0 !important; overflow: hidden !important; }
 
 /* has-aside 布局下 content 的偏移也要清除 */
 .VPDoc.has-aside .content-container { max-width: 100% !important; }
