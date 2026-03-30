@@ -64,7 +64,7 @@ html, body { background: var(--oc-bg) !important; }
   margin: 0 auto !important;
   padding: 0 48px 56px !important;
 }
-.VPDoc .content { padding-top: 0 !important; }
+.VPDoc .content { padding-top: 32px !important; }  /* 顶部留出呼吸空间 */
 .VPDoc .content-container { max-width: 100% !important; }
 
 /* =============================================
@@ -322,7 +322,7 @@ html, body { background: var(--oc-bg) !important; }
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 48px;
+  margin-top: 32px;
   padding: 14px 20px;
   background: var(--oc-surface-2);
   border: 1px solid var(--oc-border);
@@ -499,12 +499,14 @@ html, body { background: var(--oc-bg) !important; }
 @media (max-width: 768px) {
   .oc-home { padding: 24px 16px 60px; }
   .oc-tab { padding: 10px 14px; font-size: 0.85rem; }
-  .VPDoc .container { padding: 0 16px 40px !important; max-width: 100% !important; }
+  .VPDoc .container { padding: 0 16px 32px !important; max-width: 100% !important; }
+  .VPDoc .content { padding-top: 24px !important; }
   .vp-doc h1 { font-size: 1.55rem; }
   .vp-doc table thead th,
   .vp-doc table tbody td { padding: 10px 13px !important; }
 }
 @media (max-width: 480px) {
-  .VPDoc .container { padding: 0 12px 32px !important; }
+  .VPDoc .container { padding: 0 12px 24px !important; }
+  .VPDoc .content { padding-top: 20px !important; }
   .vp-doc ol li { padding-left: 48px !important; }
 }
