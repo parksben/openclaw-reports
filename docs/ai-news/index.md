@@ -65,3 +65,5 @@
 - [2026-04-27](./2026-04-27)
 
 - [gpu-rental-ranking-2026-04-27](./gpu-rental-ranking-2026-04-27)
+
+- [china-gpu-rental-top15-2026-04-27](./china-gpu-rental-top15-2026-04-27)
